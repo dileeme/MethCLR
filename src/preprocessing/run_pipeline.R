@@ -3,7 +3,7 @@ library(IlluminaHumanMethylation450kanno.ilmn12.hg19)
 library(IlluminaHumanMethylation450kmanifest)
 
 idat_dir <- "/root/MethCLR_local/GSE85210/"
-output_dir <- "/root/gdrive/MethCLR/data/GSE85210/beta_matrices/"
+output_dir <- "/root/MethCLR_local/beta_matrices/"
 dir.create(output_dir, showWarnings=FALSE, recursive=TRUE)
 
 samples <- c(); labels <- c()
@@ -44,7 +44,7 @@ for (norm in norm_methods) {
             cat(sprintf("(%d/12) RUNNING: %s\n", pipeline_count, pid))
             targets <- samplesheet
             targets$Basename <- file.path(targets$idat_dir, targets$basename)
-            rgset <- read.metharray(targets$Basename, extended=TRUE, verbose=FALSE)
+            rgset <- read.metharray(targets$Basename, extended=FALSE, verbose=FALSE)
             if (norm == "illumina") mset <- preprocessIllumina(rgset)
             else if (norm == "funnorm") mset <- preprocessFunnorm(rgset)
             else mset <- preprocessQuantile(rgset)
