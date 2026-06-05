@@ -1,22 +1,3 @@
-"""
-MethCLR — 12-Pipeline Beta Matrix Generator (v4)
-
-Changes from v3:
-- build_samplesheet now works whether IDATs have GSM prefix or not
-- GSM→Sentrix mapping built from series matrix supplementary data
-- rename_idats is idempotent and runs before samplesheet build
-- Samplesheet build uses Sentrix_ID+Position parsed from filenames directly
-
-Normalization axis:
-  sesame : SeSAMe (NOOB + dye correction)
-  minfi  : minfi-style (illumina equivalent, sesame=False)
-  raw    : uncorrected betas (save_uncorrected=True)
-
-SNP filter: True/False  (rs-prefix probes)
-Sex filter: True/False  (chrX/Y probes via manifest)
-Total: 3 x 2 x 2 = 12 pipelines
-"""
-
 import os, gzip, tarfile, time, re, warnings
 warnings.filterwarnings("ignore")
 import pandas as pd
