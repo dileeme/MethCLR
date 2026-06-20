@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(touch \"c:/Users/dilsh/OneDrive/Desktop/MethCLR/CLAUDE.md\")",
+      "Skill(schedule)",
+      "Skill(schedule:*)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\dilsh\\OneDrive\\Desktop\\MethCLR"
+    ]
+  }
+}
