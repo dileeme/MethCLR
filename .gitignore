@@ -1,3 +1,6 @@
+.claude/
+src/
+data/
 GSE85210_IDATs/
 cohort_b/
 beta_matrices/
