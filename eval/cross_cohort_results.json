@@ -1,0 +1,20 @@
+{
+  "cohort_b_auc_mean": 0.7763959622272877,
+  "cohort_b_auc_std": 0.012821560446963823,
+  "cohort_b_auc_folds": [
+    0.7742971887550201,
+    0.775421686746988,
+    0.7739759036144579,
+    0.7591967871485945,
+    0.7990882448713774
+  ],
+  "cohort_a_train_auc": 0.8446725160652495,
+  "transfer_gap": 0.06827655383796183,
+  "n_labeled": 789,
+  "n_smokers": 374,
+  "n_nonsmokers": 415,
+  "permutation_auc_mean": 0.5222021491370888,
+  "permutation_auc_std": 0.028910312376307257,
+  "top_probes": 20000,
+  "checkpoint_epoch": 5
+}
