@@ -2,7 +2,7 @@
 **Author:** Dilen Shankar | CSE, Anna University, Chennai
 **Target:** IEEE BIBM 2026 Main Track | Dallas, Dec 1–4, 2026
 **Hard Deadline:** July 5, 2026
-**Today:** June 23, 2026
+**Today:** June 24, 2026
 
 ---
 
@@ -16,7 +16,8 @@
 | Evaluation — Cohort B | ✅ Complete |
 | Baselines | ✅ Complete |
 | Figures | ✅ Complete |
-| Paper (LaTeX) | ✅ Complete — in `papier.zip` |
+| Paper (LaTeX) | ✅ Draft complete — in `papier.zip` |
+| Pre-submission fixes (P0) | 🔄 In progress — branch `pre-submission-fixes` |
 | Submission | ⏳ Pending (July 5 deadline) |
 
 ---
@@ -118,8 +119,33 @@
 
 ---
 
-## Remaining
+---
 
-- [ ] Final proofread of `methclr.tex` before submission
-- [ ] Compile on Overleaf — verify figures render, page count confirmed ≤ 8
+## Phase 7 — Pre-submission Fixes 🔄
+
+Branch: `pre-submission-fixes` (created June 24, 2026 — checkpoint committed before any edits)
+
+### P0 — Blocking fixes (in progress)
+
+- [x] File audit complete — all local artifacts verified (Cohort A embeddings regenerable from checkpoint; probe lists recomputable from matrices)
+- [x] `eval/p0_eval.py` written — computes all four P0 items in one pass
+- [ ] **Run `eval/p0_eval.py`** — produces `eval/p0_results.json` with actual numbers
+- [ ] **P0.1** — Insert label-free transfer AUC column into Table II (fit LR on all Cohort A → eval all Cohort B, no CV on B); same for PCA + AE
+- [ ] **P0.2** — Add random-init encoder row to Table II
+- [ ] **P0.3** — Fix AHRR/cg05575921 sentence in Section V-B based on actual probe rank
+- [ ] **P0.4** — Add CI (± std from 5-fold) to MethCLR Cohort A entry in Table II
+
+### P1 — Text fixes (pending, after P0)
+
+- [ ] Section V-A: "mirrors" → "is consistent with" (one citation, softer claim)
+- [ ] Section III-A: add "(450K array)" on first use of GPL13534
+- [ ] Fig. 1 caption: note AUC evaluated every 5 epochs
+- [ ] Section IV-D: hedge UMAP biological interpretation (age/cell-type/ancestry — unsupported by anything tested)
+- [ ] Final pass: overclaiming verbs (demonstrates → is consistent with, confirms → suggests) across Abstract, Results, Conclusion
+
+### Final deliverables
+
+- [ ] Updated `methclr.tex`
+- [ ] Rebuild `papier.zip`
+- [ ] Compile on Overleaf — verify figures render, page count ≤ 8
 - [ ] Submit via IEEE BIBM 2026 portal by **July 5, 2026**
