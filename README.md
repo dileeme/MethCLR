@@ -85,7 +85,6 @@ MethCLR/
 ├── new_pipeline.py             # 12-pipeline beta matrix generation (methylprep)
 ├── intersect_pipelines.py      # Probe intersection across pipelines
 ├── requirements.txt
-└── CLAUDE.md                   # Full session handoff and experiment log
 ```
 
 Data directories (`GSE85210_IDATs/`, `beta_matrices/`, `cohort_b_beta_matrices/`, `results/`) are excluded from version control — see `.gitignore`.
