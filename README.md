@@ -1,7 +1,6 @@
 # MethCLR: Contrastive Representation Learning for Pipeline-Invariant DNA Methylation Embeddings
 
 **Submission:** IEEE BIBM 2026 Main Conference Track (Dallas, Dec 1–4, 2026)
-**Author:** Dilen | CSE, Anna University Chennai
 
 ---
 
