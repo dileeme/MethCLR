@@ -1,0 +1,8 @@
+MethCLR — Cohort B Probe Intersection Report
+==================================================
+
+Cohort B internal intersection: 132,337
+Cohort A probe set: 132,337
+Final cross-cohort intersection: 132,337
+
+Per-pipeline probe counts (before intersection):
