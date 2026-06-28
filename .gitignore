@@ -1,14 +1,44 @@
-.claude/
-src/
-data/
+# ── Raw data — IDATs ─────────────────────────────────────────────────────────
 GSE85210_IDATs/
 cohort_b/
+
+# ── Processed beta matrices ───────────────────────────────────────────────────
 beta_matrices/
+cohort_b_beta_matrices/
+
+# ── Model checkpoints ─────────────────────────────────────────────────────────
 results/
+*.pt
+
+# ── Embedding cache (large numpy arrays) ─────────────────────────────────────
+eval/rev_cache_*.npy
+eval/cohort_b_embeddings.npy
+eval/cohort_b_labels.npy
+eval/cohort_b_sample_ids.npy
+
+# ── Paper / LaTeX ─────────────────────────────────────────────────────────────
+latex/
+latex.zip
+papier.zip
+eval/latex/
+
+# ── Figures ───────────────────────────────────────────────────────────────────
 figures/
+assets/
+eval/*.png
+
+# ── Colab upload bundle ───────────────────────────────────────────────────────
 colab_dump/
-__pycache__/
-*.pyc
+
+# ── Downloads / archives ──────────────────────────────────────────────────────
 *.gz
 *.tar
-*.pt
+*.zip
+
+# ── Python cache ─────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Claude internal ───────────────────────────────────────────────────────────
+.claude/
