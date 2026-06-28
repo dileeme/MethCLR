@@ -1,0 +1,77 @@
+
+MethCLR — Reviewer Response Analyses
+N_A=253  N_B=789  N_MATCH=202  N_BOOT=10,000
+
+========================================================================
+TABLE 1 (Task 1) — Revised Table II: Matched-N Cohort B CV
+========================================================================
+Cohort B 5-fold CV with training pool subsampled to N=202.
+Repeated 20x. Mean ± std over repetition means.
+
+Method         A CV (N=202)           B matched-N CV         B standard CV     
+------------------------------------------------------------------------
+MethCLR        0.8443 ± 0.0546        0.6757 ± 0.0145        0.7166 ± 0.0400   
+PCA            0.8230 ± 0.0333        0.8993 ± 0.0106        0.9637 ± 0.0149   
+AE             0.8219 ± 0.0259        0.6802 ± 0.0143        0.7372 ± 0.0194   
+RandInit       0.6663 ± 0.0876        N/A                    N/A               
+
+A CV: standard 5-fold, 1 run (N≈202 training per fold)
+B matched-N: training pool subsampled from N≈631 → N=202
+B standard: 5-fold with full training pool N≈631
+
+========================================================================
+TABLE 2 (Task 2) — Bootstrap Significance (Paired, 10,000 resamples)
+========================================================================
+Method pair                      ΔAUC                  95% CI     p-value   Sig
+------------------------------------------------------------------------
+Cohort A 5-fold CV:
+  MethCLR vs PCA                 +0.0252  [-0.0414, +0.0902]      0.2241    ns
+  MethCLR vs AE                  +0.0194  [-0.0357, +0.0757]      0.2475    ns
+  MethCLR vs RandInit            +0.1705  [+0.1027, +0.2404]      0.0000   ***
+
+Cohort B matched-N CV:
+  MethCLR vs PCA                 -0.2371  [-0.2760, -0.1998]      0.0000   ***
+  MethCLR vs AE                  -0.0215  [-0.0527, +0.0110]      0.0959    ns
+  MethCLR vs RandInit            -0.0102  [-0.0549, +0.0335]      0.3311    ns
+
+Significance: *** p<0.001  ** p<0.01  * p<0.05  ns p≥0.05
+Bootstrap over per-sample held-out CV predictions (not fold AUCs).
+
+========================================================================
+TABLE 3 (Task 3) — Semi-supervised Fine-tuning Curve (MethCLR)
+========================================================================
+Frozen MethCLR encoder. LR head fit on x% of Cohort B.
+10%/20%: 10 reps. 0%=label-free. 100%=5-fold CV.
+
+Supervision      N_sup                     AUC  Note
+------------------------------------------------------------------------
+0%   (label-free)                  N/A  0.6149                  LR on all Cohort A → Cohort B
+10%                                 79  0.6200 ± 0.0279         eval on 90% of B
+20%                                158  0.6669 ± 0.0147         eval on 80% of B
+100% (5-fold CV, unmatched)        789  0.7166 ± 0.0400         within-cohort B
+100% (5-fold CV, matched-N=202)     789  0.6757 ± 0.0145         matched-N from Task 1
+
+Interpretation:
+  0% → 10% gap shows gain from minimal Cohort B supervision.
+  10% → 100% gap shows remaining label bottleneck.
+
+========================================================================
+FLAGS — Results that may contradict current paper claims
+========================================================================
+[FLAG] Label-free MethCLR AUC on B = 0.6149 is BELOW random-init (0.6236). This is already known from p0 eval (0.615 vs 0.624) and contradicts a simple 'learned representations generalise better' claim. Requires careful framing in paper.
+
+[FLAG] PCA Cohort B AUC drops 0.0643 under matched-N (0.9637 → 0.8993). This confirms the confound was inflating that method's standard CV number.
+
+[FLAG] AE Cohort B AUC drops 0.0571 under matched-N (0.7372 → 0.6802). This confirms the confound was inflating that method's standard CV number.
+
+[FLAG] MethCLR vs PCA on Cohort A: NOT significant (p=0.2241). Cannot claim MethCLR is significantly better than PCA on Cohort A.
+
+[FLAG] MethCLR vs AE on Cohort A: NOT significant (p=0.2475). Cannot claim MethCLR is significantly better than AE on Cohort A.
+
+[FLAG] MethCLR vs AE on Cohort B matched-N: NOT significant (p=0.0959).
+
+[FLAG] MethCLR vs RandInit on Cohort B matched-N: NOT significant (p=0.3311).
+
+
+========================================================================
+End of reviewer analyses.

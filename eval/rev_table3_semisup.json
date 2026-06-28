@@ -1,0 +1,57 @@
+{
+  "pct_0": {
+    "supervision_pct": 0,
+    "auc_mean": 0.614944269054829,
+    "auc_std": null,
+    "note": "LR fit on all Cohort A; evaluated on all Cohort B (label-free transfer)"
+  },
+  "pct_10": {
+    "supervision_pct": 10,
+    "n_supervised": 79,
+    "auc_mean": 0.6200181382805228,
+    "auc_std": 0.02785252702934456,
+    "rep_aucs": [
+      0.6262400458230245,
+      0.6128033985409821,
+      0.6189926890000875,
+      0.6232010882968314,
+      0.6583718506614904,
+      0.5448644004423195,
+      0.6182448826978306,
+      0.6307189282503719,
+      0.6389527529613924,
+      0.6277913461308979
+    ],
+    "n_reps": 10,
+    "note": "LR fit on 10% of Cohort B (79 samples); evaluated on remaining 90% (710 samples)"
+  },
+  "pct_20": {
+    "supervision_pct": 20,
+    "n_supervised": 158,
+    "auc_mean": 0.6668684772534956,
+    "auc_std": 0.014742922841595387,
+    "rep_aucs": [
+      0.679665148889874,
+      0.6808739976628924,
+      0.6587319176371036,
+      0.6368819760647942,
+      0.6729661119393964,
+      0.6647358665430955,
+      0.6652899222307289,
+      0.6695914091147197,
+      0.6502599024861989,
+      0.6896885199661522
+    ],
+    "n_reps": 10,
+    "note": "LR fit on 20% of Cohort B (158 samples); evaluated on remaining 80% (631 samples)"
+  },
+  "pct_100": {
+    "supervision_pct": 100,
+    "n_supervised": 789,
+    "auc_mean_unmatched": 0.7165926408336047,
+    "auc_std_unmatched": 0.03999110270494462,
+    "auc_mean_matched_n": 0.6757169000325626,
+    "auc_std_matched_n": 0.014490382699559917,
+    "note": "100% = within-cohort Cohort B 5-fold CV (1 run, unmatched)"
+  }
+}
